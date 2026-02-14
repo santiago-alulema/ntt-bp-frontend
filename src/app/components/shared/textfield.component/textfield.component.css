@@ -1,0 +1,26 @@
+.textfield {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.textfield-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.textfield-input {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  outline: none;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.textfield-input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}

@@ -1,0 +1,9 @@
+.list-content {
+  width: 100%;
+}
+
+.list-toolbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}

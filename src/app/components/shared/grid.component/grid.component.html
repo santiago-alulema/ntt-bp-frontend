@@ -1,0 +1,86 @@
+<div class="TableWrapper">
+    <div class="TableScroll">
+        <table class="TableCustom">
+            <thead>
+                <tr>
+                    @for (col of validColum(); track col.name) {
+                    <th [style.width]="col.width" [style]="col.style">
+                        <div class="th-content">
+                            @if (col.icon && col.alignIcon === 'left') {
+                            <img class="col-icon" width="16px" [src]="col.icon" alt="" />
+                            }
+                            {{ col.title }}
+                            @if (col.icon && col.alignIcon === 'right') {
+                            <img class="col-icon" width="16px" [src]="col.icon" alt="" />
+                            }
+                        </div>
+                    </th>
+                    }
+                </tr>
+            </thead>
+
+            <tbody>
+                @if (!rows().length) {
+                <tr>
+                    <td [attr.colspan]="validColum().length">
+                        <div class="EmpyTable">
+                            <strong>Empty Table</strong>
+                        </div>
+                    </td>
+                </tr>
+                }@else {
+                @for (row of itemCountVisibleShow(); track $index; let rowIndex = $index) {
+                <tr>
+                    @for (col of validColum(); track col.name) {
+                    <td [class.actions-cell]="col.name === 'actions'">
+                        @if (col.name === 'actions') {
+                        <button type="button" class="kebab" (click)="toggleMenu(rowIndex, $event)">
+                            ⋮
+                        </button>
+                        @if (openMenuRowIndex() === rowIndex) {
+                        <div class="menu menu--up" (click)="$event.stopPropagation()">
+                            @for (action of actions(); track action.tooltip) {
+                            @if (!isActionHidden(action, row)) {
+                            <app-button [title]="action.label ?? ''" [type]="action.color ?? 'success'"
+                                (click)="runAction(action, row, $event)"></app-button>
+                            }
+                            }
+                        </div>
+                        }
+                        } @else {
+                        @if (col.isImage) {
+                        <img width="55px"
+                            [src]="isValidUrlFormat($any(row)[col.name]) ? ($any(row)[col.name]): imageDefault"
+                            alt="" />
+                        } @else {
+                        {{ $any(row)[col.name] }}
+                        }
+                        }
+                    </td>
+                    }
+                </tr>
+                }
+
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <hr class="divider">
+
+    <div style="display: flex; justify-content: space-between; padding-left: 15px;padding-right: 15px;">
+        <div>{{itemCountVisibleShow().length}} resultados</div>
+        <div>
+            <label class="field">
+                <div class="select">
+                    <select class="select__control" [value]="pageSize()" (change)="onPageSizeChange($event)">
+                        @for (value of validNumberItemsDisplay(); track value) {
+                        <option [value]="value">{{ value }}</option>
+                        }
+                    </select>
+                    <span class="select__caret" aria-hidden="true"></span>
+                </div>
+            </label>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+<app-modal [isOpen]="isOpen()" (click)="onClose()?.()">
+    @switch (type()) {
+        @case ('warning') {
+            
+            <div class="logo-box">
+            <img class="img-contain" width="16" src="assets/icons/warning-icon.svg" alt="Advertencia" />
+            </div>
+        }
+        @case ('error') {
+            <div class="logo-box">
+            <img class="img-contain" width="16" src="assets/icons/error-icon.svg" alt="Error" />
+            </div>
+        }
+        @default {
+            <div class="logo-box">
+            <img class="img-contain" width="16" src="assets/icons/success-icon.svg" alt="Éxito" />
+            </div>
+        }
+    }
+
+    <h3 class="text-center">{{title()}}</h3>
+    <p class="text-center" [innerHTML]="message()"></p>
+  <div class="dialog-actions">
+    @if (type() === 'warning') {
+      <app-button title="Aceptar" type="warning" (click)="onAccept()?.()"></app-button>
+      <app-button title="Cancelar" type="secondary" (click)="onCancel()?.()"></app-button>
+    } @else {
+      <app-button title="Aceptar" type="success" (click)="onAccept()?.()"></app-button>
+    }
+  </div>
+</app-modal>

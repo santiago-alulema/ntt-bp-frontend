@@ -1,0 +1,36 @@
+<div class="page-shell">
+
+    <div style="display: flex; justify-content: space-between;width: 100%;margin-bottom: 9px;">
+        <div style="width: 20%;">
+            <app-skeleton [height]="34" [width]="100"></app-skeleton>
+        </div>
+
+        <div style="width: 20%;">
+            <app-skeleton [height]="34" [width]="100"></app-skeleton>
+        </div>
+    </div>
+
+    <div class="table-shell">
+        <table style="width: 100%;">
+            <thead class="table-head">
+                <tr>
+                    @for (h of headers; track $index) {
+                    <th>
+                        <app-skeleton [width]="85"></app-skeleton>
+                    </th>
+                    }
+                </tr>
+            </thead>
+            @for (r of rows; track $index) {
+            <tr>
+                @for (c of cols; track $index) {
+                <td>
+                    <app-skeleton [height]="14" [width]="85"></app-skeleton>
+                </td>
+                }
+            </tr>
+            }
+        </table>
+    </div>
+
+</div>

@@ -1,0 +1,83 @@
+.header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #2b2f36;
+}
+
+.brand-icon { font-size: 18px; }
+
+.title {
+  text-align: center;
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.divider {
+  height: 1px;
+  background: #e7e9ee;
+  margin: 14px 0 18px;
+}
+
+.form .grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px 18px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.page label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #3a404a;
+}
+
+.page input {
+  height: 38px;
+  padding: 0 10px;
+  border: 1px solid #cfd6e1;
+  border-radius: 6px;
+  outline: none;
+  font-size: 13px;
+  background: #fff;
+}
+
+.page input:focus {
+  border-color: #7aa6ff;
+  box-shadow: 0 0 0 3px rgba(122, 166, 255, 0.25);
+}
+
+.page input.invalid {
+  border-color: #e06b6b;
+  box-shadow: 0 0 0 3px rgba(224, 107, 107, 0.18);
+}
+
+.error {
+  font-size: 11px;
+  color: #c94141;
+}
+
+.submit-error {
+  margin-top: 12px;
+  text-align: center;
+  color: #c94141;
+  font-size: 12px;
+}
+
+@media (max-width: 720px) {
+  .form .grid { grid-template-columns: 1fr; }
+}

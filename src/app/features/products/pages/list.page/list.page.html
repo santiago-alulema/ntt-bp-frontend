@@ -1,0 +1,13 @@
+<div class="container">
+    @if (loadingService.isLoading()) {
+    <app-product-list-skeletons></app-product-list-skeletons>
+    }@else{
+    <div class="list-content">
+        <div class="list-toolbar">
+            <app-textfield placeholder="Search.." [onChange]="onChangeSearchTerm"></app-textfield>
+            <app-button [click]="openCreateForm" title="Agregar" type="warning"></app-button>
+        </div>
+        <app-grid [columns]="columns()" [rows]="visibleProducts()" [actions]="actions()"></app-grid>
+    </div>
+    }
+</div>

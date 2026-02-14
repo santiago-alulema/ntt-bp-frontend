@@ -1,0 +1,10 @@
+<div class="textfield">
+    @if(label()) {
+    <label class="textfield-label">
+        {{ label() }}
+    </label>
+    }
+
+    <input class="textfield-input" [type]="inputType()" [placeholder]="placeholder()" [value]="value()"
+        (input)="handleInput($event)" (keyup.enter)="handleEnter()" />
+</div>

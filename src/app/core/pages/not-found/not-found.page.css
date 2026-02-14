@@ -1,0 +1,10 @@
+ .nf{
+    max-width: 600px;
+    margin: 60px auto;
+    padding: 20px;
+    border: 1px solid rgba(0,0,0,.12);
+    border-radius: 12px;
+    text-align: center;
+    background: #fff;
+}
+p{ opacity: .8; }
